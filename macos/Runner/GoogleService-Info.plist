@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>321986345401-7662v410u6if5nn3bm4h4kosg2o53m4t.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.321986345401-7662v410u6if5nn3bm4h4kosg2o53m4t</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCO0waBvbaVC3k8Bm1L4L5nnjxZEJHnNNA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>321986345401</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.app.engwheels</string>
+	<key>PROJECT_ID</key>
+	<string>engwheels-95b9b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>engwheels-95b9b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:321986345401:ios:8831a7da1dbce13a959e68</string>
+</dict>
+</plist>

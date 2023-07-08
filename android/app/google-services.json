@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "321986345401",
+    "project_id": "engwheels-95b9b",
+    "storage_bucket": "engwheels-95b9b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:321986345401:android:ae05bad2afb4cdd6959e68",
+        "android_client_info": {
+          "package_name": "com.app.engwheels"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "321986345401-v6s5snnof53b6fi4bkv4fqu2sr98d8ps.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvswcdZxkipLyWlYuyOxandoJ6dNEL-p0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "321986345401-v6s5snnof53b6fi4bkv4fqu2sr98d8ps.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "321986345401-7662v410u6if5nn3bm4h4kosg2o53m4t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.app.engwheels"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
