@@ -79,7 +79,7 @@ class _AddAdSeconedState extends State<AddAdSeconed> {
                         ],
                       ),
                       Row(children: [Expanded(
-                        child: Text(  "متاح للتقسيط",style: TextStyle(color: AppColors.black1,fontSize: 14),
+                        child: Text(  "instalment_available".tr(),style: TextStyle(color: AppColors.black1,fontSize: 14),
 
                         ),
                       ),
@@ -88,7 +88,7 @@ class _AddAdSeconedState extends State<AddAdSeconed> {
                           cubit.checkValid2AddAdData(context);
                         },)
                       ],),
-                      Text(  "اوبشن السيارة",style: TextStyle(color: AppColors.black1,fontSize: 14),),
+                      Text(  "car_options",style: TextStyle(color: AppColors.black1,fontSize: 14),),
                       CarOptions(),
                       SizedBox(
                         height: 20,

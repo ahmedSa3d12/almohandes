@@ -332,7 +332,7 @@ class _AddetialsScreenState extends State<AddetialsScreen> {
                               width: 7,
                             ),
                             Text(
-                              "اوبشن السيارة",
+                              "car_options".tr(),
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20,
