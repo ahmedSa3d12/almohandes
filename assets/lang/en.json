@@ -98,17 +98,22 @@
   "addetials": "Ad Detials",
   "km": "Km",
   "adviser": "Adviser",
-  "waring_delete_account_message": "تحذير حذف  الحساب"
-
-
-
-
-
-
-
-
-
-
+  "waring_delete_account_message": "Waring Delete Account Message",
+  "report": "Report",
+  "block": "Block",
+  "no_message": "No Message",
+  "youcanadd": "You can now add your ad in simple steps and sell while you are comfortable",
+  "add_car": "Add Your Car",
+  "recent_car": "Recent Car Added",
+  "see_new_car": "See newly added cars",
+  "all_car": "All Cars",
+  "user_filter":"Use the filter to get the results you want",
+  "Success": "Success",
+  "name": "Name",
+  "phone": "Phone",
+  "send": "Send",
+  "subject": "Subject",
+  "message": "Message"
 
 
 }

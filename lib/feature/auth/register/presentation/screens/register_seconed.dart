@@ -72,7 +72,7 @@ class _RegisterSeconedState extends State<RegisterSeconed> {
                             cubit.checkValidLoginData();
                           },  validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return "email_required".tr();
+                            return "field_required".tr();
                           }
                           return null;
                         },
@@ -108,7 +108,7 @@ class _RegisterSeconedState extends State<RegisterSeconed> {
                             cubit.checkValidLoginData();
                           },  validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return "password_required".tr();
+                            return "field_required".tr();
                           }
                           return null;
                         },
@@ -144,7 +144,7 @@ class _RegisterSeconedState extends State<RegisterSeconed> {
                             cubit.checkValidLoginData();
                           },  validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return "confirm_pass_required".tr();
+                            return "field_required".tr();
                           }
                           return null;
                         },

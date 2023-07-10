@@ -130,7 +130,7 @@ class _RegisterFirstState extends State<RegisterFirst> {
                             cubit.checkValidLoginData();
                           },  validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return "name_required".tr();
+                            return "field_required".tr();
                           }
                           return null;
                         },
@@ -171,7 +171,7 @@ class _RegisterFirstState extends State<RegisterFirst> {
                                   cubit.checkValidLoginData();
                                 },  validator: (value) {
                                 if (value == null || value.isEmpty) {
-                                  return "phone_required".tr();
+                                  return "field_required".tr();
                                 }
                                 return null;
                               },

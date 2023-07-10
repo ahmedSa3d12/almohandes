@@ -83,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       child: Container(
                                         width: 190,
                                         child: Text(
-                                          ("يمكنك الان إضافة اعلانك في خطوات بسيطة وبيع وانت مرتاح"),
+                                          ("youcanadd".tr()),
                                           style: TextStyle(
                                               color: AppColors.unselectedTab,
                                               fontSize: 20,
@@ -106,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         child: Row(
                                           children: [
                                             Text(
-                                              "اضف سيارتك",
+                                              "add_car".tr(),
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 16,
@@ -155,14 +155,14 @@ class _HomeScreenState extends State<HomeScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "احدث السيارات المضافة",
+                                "recent_car".tr(),
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20,
                                     color: AppColors.black1),
                               ),
                               Text(
-                                "شاهد السيارات المضافة حديثا اول بأول",
+                                "see_new_car".tr(),
                                 style: TextStyle(
                                     fontSize: 12,
                                     color: AppColors.descriptionBoardingColor),
@@ -208,14 +208,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "كل السيارات",
+                                  "all_car".tr(),
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20,
                                       color: AppColors.black1),
                                 ),
                                 Text(
-                                  "استخدم التصفية لتحصل الي النتائج التي تريدها ",
+                                  "user_filter".tr(),
                                   style: TextStyle(
                                       fontSize: 12,
                                       color: AppColors.descriptionBoardingColor),

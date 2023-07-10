@@ -10,6 +10,7 @@ class EndPoints {
   static const String messagesUrl = '${baseUrl}user/get_room_messages';
   static const String carOptionsUrl = '${baseUrl}user/options';
   static const String sendmessagesUrl = '${baseUrl}user/send_message';
+  static const String openchatUrl = '${baseUrl}user/send_message_with_other_response';
   static const String filterhomeUrl = '${baseUrl}user/car_filter';
   static const String settingsUrl = '${baseUrl}setting';
   static const String contactUsUrl = '${baseUrl}contact_us';

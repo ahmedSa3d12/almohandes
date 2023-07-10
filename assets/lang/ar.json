@@ -78,6 +78,7 @@
   "color": "اللون",
   "engine_type": "نوعغ المحرك",
   "choose_photo": "اختر الصوره",
+  "youcanadd": "يمكنك الان إضافة اعلانك في خطوات بسيطة وبيع وانت مرتاح",
   "camera": "كاميرا",
   "gallery": "معرض الصور",
   "cancel": "إلغاء",
@@ -98,6 +99,20 @@
   "addetials": "تفاصيل الاعلان",
   "km": "كم",
   "adviser": "المعلن",
-  "waring_delete_account_message": "waring_delete_account_message"
+  "waring_delete_account_message": "تحذير حذف  الحساب",
+  "report": "ابلاغ",
+  "block": "حظر",
+  "no_message": "لا يوجد رسائل",
+  "add_car": "اضف سيارتك",
+  "recent_car": "احدث السيارات المضافة",
+  "see_new_car": "شاهد السيارات المضافة حديثا اول بأول",
+  "all_car": "كل السيارات",
+  "user_filter": "استخدم التصفية لتحصل الي النتائج التي تريدها",
+  "Success": "تم بنجاح",
+  "name": "الاسم",
+  "phone": "رقم الجوال",
+  "subject": "المحتوى",
+  "message": "الرساله",
+  "send": "ارسال"
 
 }

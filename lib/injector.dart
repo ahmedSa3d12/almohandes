@@ -82,7 +82,7 @@ Future<void> setup() async {
   );
   serviceLocator.registerFactory(
         () => AdDetailsCubit(
-
+            serviceLocator()
     ),
   );
   serviceLocator.registerFactory(

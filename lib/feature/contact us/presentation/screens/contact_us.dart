@@ -31,7 +31,7 @@ class ContactUsScreen extends StatelessWidget {
               Duration(milliseconds: 300),
                   () {
                 toastMessage(
-                  'Success',
+                  'Success'.tr(),
                   context,
                   color: AppColors.success,
                 );
@@ -124,7 +124,7 @@ class ContactUsScreen extends StatelessWidget {
                             )),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return "name_required".tr();
+                            return "field_required".tr();
                           }
                           return null;
                         },
@@ -152,7 +152,7 @@ class ContactUsScreen extends StatelessWidget {
                           )),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return "phone_required".tr();
+                            return "field_required".tr();
                           }
                           return null;
                         },
@@ -180,7 +180,7 @@ class ContactUsScreen extends StatelessWidget {
                           )),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return "email_required".tr();
+                            return "field_required".tr();
                           }
                           return null;
                         },
@@ -208,7 +208,7 @@ class ContactUsScreen extends StatelessWidget {
                           )),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return "subject_required".tr();
+                          return "field_required".tr();
                         }
                         return null;
                       },
@@ -238,7 +238,7 @@ border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(16))),
                           )),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return "message_required".tr();
+                          return "field_required".tr();
                         }
                         return null;
                       },

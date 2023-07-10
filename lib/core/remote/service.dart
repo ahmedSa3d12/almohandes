@@ -25,6 +25,7 @@ import '../models/country_model.dart';
 import '../models/new_model.dart';
 import '../models/setting.dart';
 import '../models/single_ad_model.dart';
+import '../models/single_chat.dart';
 import '../models/single_message_model.dart';
 import '../models/status_resspons.dart';
 import '../models/sub_category_model.dart';
@@ -322,6 +323,33 @@ class ServiceApi {
         },
       );
       return Right(SingleMessageModel.fromJson(response));
+    } on ServerException {
+      return Left(ServerFailure());
+    }
+  }
+  Future<Either<Failure, SingleChatModel>> openchat(
+      String text,String image,int user_id) async {
+    UserModel? userModel = await Preferences.instance.getUserModel();
+
+    try {
+      final response = await dio.post(
+        EndPoints.openchatUrl,
+        formDataIsEnabled: true,
+        options: Options(
+          headers: {
+            'Authorization': userModel!.data!.token,
+          },
+        ),
+        body:{
+          "text": text,
+"to_user_id":user_id,
+          if (image.isNotEmpty) ...{
+            "image": await MultipartFile.fromFile(image)
+          },
+
+        },
+      );
+      return Right(SingleChatModel.fromJson(response));
     } on ServerException {
       return Left(ServerFailure());
     }

@@ -88,7 +88,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                         formKey.currentState!.validate();
                       },  validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return "email_required".tr();
+                        return "field_required".tr();
                       }
                       return null;
                     },

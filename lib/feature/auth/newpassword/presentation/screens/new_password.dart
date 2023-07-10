@@ -84,7 +84,7 @@ NewpasswordCubit cubit=context.read<NewpasswordCubit>();
 
                       },  validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return "name_required".tr();
+                        return "field_required".tr();
                       }
                       return null;
                     },
@@ -120,7 +120,7 @@ NewpasswordCubit cubit=context.read<NewpasswordCubit>();
                         formKey.currentState!.validate();
                       },  validator: (value) {
                       if (value == null || value.isEmpty||value!=cubit.newpass.text) {
-                        return value!.isEmpty?"name_required".tr():"password_must_equal".tr();
+                        return value!.isEmpty?"field_required".tr():"password_must_equal".tr();
                       }
                       return null;
                     },

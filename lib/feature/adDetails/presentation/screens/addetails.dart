@@ -461,18 +461,23 @@ class _AddetialsScreenState extends State<AddetialsScreen> {
                                   ),
                                 ),
                               ),
-                              Container(
-                                width: 48,
-                                height: 48,
-                                decoration: BoxDecoration(
-                                    color: AppColors.primary,
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(16))),
-                                child: Center(
-                                  child: MySvgWidget(
-                                    size: 60,
-                                    path: ImageAssets.chatIcon,
-                                    imageColor: AppColors.white,
+                              InkWell(
+                                onTap: () {
+                                  context.read<AdDetailsCubit>().sendMessage(widget.carsModel.userId!, context);
+                                },
+                                child: Container(
+                                  width: 48,
+                                  height: 48,
+                                  decoration: BoxDecoration(
+                                      color: AppColors.primary,
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(16))),
+                                  child: Center(
+                                    child: MySvgWidget(
+                                      size: 60,
+                                      path: ImageAssets.chatIcon,
+                                      imageColor: AppColors.white,
+                                    ),
                                   ),
                                 ),
                               )
