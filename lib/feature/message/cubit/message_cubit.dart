@@ -88,6 +88,6 @@ textxontrol.text='';
 
 
    //emit(PhotoPicked());
-    sendMessage("t", croppedFile!.path,user_id );
+    sendMessage("", croppedFile!.path,user_id );
   }
 }

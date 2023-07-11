@@ -51,13 +51,17 @@ class _HomeScreenState extends State<HomeScreen> {
                   leadingWidth: 0,
                   flexibleSpace: FlexibleSpaceBar(
                     collapseMode: CollapseMode.pin,
-                    background: Column(children: [
+                    background: Column(
+                        children: [
                       Container(
                         width: MediaQuery
                             .of(context)
                             .size
                             .width,
-                        height: 210,
+                        height:  MediaQuery
+                      .of(context)
+                      .size
+                      .height/3,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(8)),
                             gradient: LinearGradient(colors: [
@@ -76,12 +80,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Column(
                                   children: [
                                     SizedBox(
-                                      height: 10,
+                                      height: 8,
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Container(
-                                        width: 190,
+                                        width: MediaQuery.of(context).size.width/2.2,
                                         child: Text(
                                           ("youcanadd".tr()),
                                           style: TextStyle(
@@ -172,11 +176,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                       Container(
-                        height: 270,
+                        height: 260,
                         child: HomeCar(),
                       ),
                       SizedBox(
-                        height: 40,
+                        height: 10,
                       ),
                     ]),
                   ),

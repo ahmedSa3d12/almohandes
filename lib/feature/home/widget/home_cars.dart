@@ -73,11 +73,11 @@ class HomeCar extends StatelessWidget {
                           imageUrl: EndPoints.baseUrl.replaceAll("/api", "")+cubit.cars.elementAt(index).image!,):Container(),
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 7,
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 8.0),
+                            horizontal: 7.0),
                         child: Text(
                          EasyLocalization.of(context)!.currentLocale!.languageCode=='ar'?
                          cubit.cars.elementAt(index).category.titleAr+" "+cubit.cars.elementAt(index).subCategory.titleAr:
@@ -89,7 +89,7 @@ class HomeCar extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 7,
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(

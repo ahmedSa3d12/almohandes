@@ -103,7 +103,7 @@ class LastMessage {
   });
 
   factory LastMessage.fromJson(Map<String, dynamic> json) => LastMessage(
-    text: json["text"],
+    text: json["text"]??"",
     date: json["date"],
   );
 
