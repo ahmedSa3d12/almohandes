@@ -55,7 +55,7 @@ class MessageModel {
     isRead: json["is_read"]??"",
     time: json["time"],
     image: json["image"],
-    text: json["text"],
+    text: json["text"]??"",
     createdAt: DateTime.parse(json["created_at"]),
     updatedAt: DateTime.parse(json["updated_at"]),
   );

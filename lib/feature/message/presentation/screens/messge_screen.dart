@@ -29,36 +29,36 @@ class _MessgeState extends State<MessgeScreen> {
     return Scaffold(
 
       appBar: AppBar(
-          actions: [
-
-            PopupMenuButton(
-              // add icon, by default "3 dot" icon
-              // icon: Icon(Icons.book)
-                itemBuilder: (context) {
-                  return [
-                    PopupMenuItem<int>(
-                      value: 0,
-                      child: Text("report".tr()),
-                    ),
-
-                    PopupMenuItem<int>(
-                      value: 1,
-                      child: Text("block".tr()),
-                    ),
-
-
-                  ];
-                },
-                onSelected: (value) {
-                  if (value == 0) {
-                    print("My account menu is selected.");
-                  } else if (value == 1) {
-                    print("Settings menu is selected.");
-                  }
-                }
-            ),
-
-          ],
+          // actions: [
+          //
+          //   PopupMenuButton(
+          //     // add icon, by default "3 dot" icon
+          //     // icon: Icon(Icons.book)
+          //       itemBuilder: (context) {
+          //         return [
+          //           PopupMenuItem<int>(
+          //             value: 0,
+          //             child: Text("report".tr()),
+          //           ),
+          //
+          //           PopupMenuItem<int>(
+          //             value: 1,
+          //             child: Text("block".tr()),
+          //           ),
+          //
+          //
+          //         ];
+          //       },
+          //       onSelected: (value) {
+          //         if (value == 0) {
+          //           print("My account menu is selected.");
+          //         } else if (value == 1) {
+          //           print("Settings menu is selected.");
+          //         }
+          //       }
+          //   ),
+          //
+          // ],
           iconTheme: IconThemeData(color: AppColors.black),
           centerTitle: false,
           elevation: 0,
@@ -128,13 +128,13 @@ class _MessgeState extends State<MessgeScreen> {
                                                   .fromUserId
                                                   ? (cubit.messages
                                                   .elementAt(index)
-                                                  .image != null ?
+                                                  .text.isEmpty ?
                                               AppColors.white
                                                   : AppColors.primary)
                                                   :
                                               cubit.messages
                                                   .elementAt(index)
-                                                  .image != null ? AppColors
+                                                  .text.isEmpty ? AppColors
                                                   .white : AppColors.gray2
                                               ,
                                               margin: BubbleEdges.only(top: 10),
@@ -147,7 +147,7 @@ class _MessgeState extends State<MessgeScreen> {
                                               elevation:
                                               cubit.messages
                                                   .elementAt(index)
-                                                  .image != null
+                                                  .text.isEmpty
                                                   ? 0
                                                   : 2,
                                               child: Padding(
@@ -155,7 +155,7 @@ class _MessgeState extends State<MessgeScreen> {
                                                   const EdgeInsets.all(0),
                                                   child: (cubit.messages
                                                       .elementAt(index)
-                                                      .image != null
+                                                      .text.isEmpty
                                                       ?
                                                   CachedNetworkImage(
                                                       height: 290,

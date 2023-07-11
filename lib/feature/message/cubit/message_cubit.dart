@@ -56,7 +56,7 @@ class MessageCubit extends Cubit<MessageState> {
           (loginModel) {
        if (loginModel.code == 200) {
        messages.insert(0,loginModel.data);
-
+textxontrol.text='';
        emit(MessageLoaded());
        if (scrollController.hasClients) {
          scrollController.animateTo(0,

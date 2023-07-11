@@ -65,7 +65,7 @@ class ChatModel {
     name: json["name"],
     email: json["email"],
     code: json["code"],
-    photo: json["photo"],
+    photo: json["photo"]??"",
     phoneCode: json["phone_code"],
     phone: json["phone"],
     countryId: json["country_id"],
