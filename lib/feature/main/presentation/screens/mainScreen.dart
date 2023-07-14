@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../../config/routes/app_routes.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/assets_manager.dart';
 import '../../../../core/widgets/my_svg_widget.dart';
@@ -30,8 +31,17 @@ class _MainScreensState extends State<MainScreens> {
 
           bottomNavigationBar: BottomNavigationBar(
             onTap: (value) {
+              if(value==1){
+                if(context.read<MainscreensCubit>().userModel==null) {
+                  Navigator.pushNamed(context, Routes.loginRoute);
+                }
+                else{
+                  context.read<MainscreensCubit>().setIndex(value);
+                }
+              }
+              else{
               context.read<MainscreensCubit>().setIndex(value);
-            },
+            }},
               items: <BottomNavigationBarItem>[
 
                 BottomNavigationBarItem(

@@ -22,9 +22,11 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+
   @override
   Widget build(BuildContext context) {
    ChatCubit cubit=context.read<ChatCubit>();
+
     return Scaffold(
       appBar: AppBar(
           elevation: 0,
@@ -170,5 +172,11 @@ class _ChatScreenState extends State<ChatScreen> {
 )
       ),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
   }
 }

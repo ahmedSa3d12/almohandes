@@ -1,6 +1,7 @@
 import 'package:engwheels/core/utils/toast_message_method.dart';
 import 'package:bloc/bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:engwheels/feature/chat/cubit/chat_cubit.dart';
 import 'package:engwheels/feature/profile/cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -11,6 +12,7 @@ import '../../../../core/models/user_model.dart';
 import '../../../../core/preferences/preferences.dart';
 import '../../../../core/remote/service.dart';
 import '../../../../core/utils/appwidget.dart';
+import '../../../main/cubit/mainscreens_cubit.dart';
 import '../model/login_model.dart';
 
 part 'login_state.dart';
@@ -58,6 +60,8 @@ class LoginCubit extends Cubit<LoginState> {
           Preferences.instance.setUser(loginModel).then((value) {
             emit(OnLoginSuccess(loginModel));
             context.read<ProfileCubit>().getuserData();
+            context.read<MainscreensCubit>().getuserData();
+            context.read<ChatCubit>().getuserData();
             context.read<ProfileCubit>().getDeviceToken();
 
             Navigator.pop(context);

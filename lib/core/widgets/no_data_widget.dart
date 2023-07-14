@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 import '../utils/app_colors.dart';
 
@@ -27,6 +28,8 @@ class NoDataWidget extends StatelessWidget {
           ),
           SizedBox(height: 12, width: MediaQuery.of(context).size.width),
           Icon(Icons.replay_circle_filled_rounded, color: AppColors.primary,size: 35,),
+          Lottie.asset('assets/lottie/no_item.json',height: 100,width: MediaQuery.of(context).size.width/2,fit: BoxFit.fitWidth),
+
         ],
       ),
     );

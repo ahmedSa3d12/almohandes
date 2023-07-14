@@ -22,6 +22,8 @@ class AddAdModel{
 List<String> additions=[];
 List<String> additionsvalue=[];
 
+  List<int> ids=[];
+
 
   bool isData1Valid(BuildContext context){
     if(image.isNotEmpty&&price.isNotEmpty&&kilometers_travaled.isNotEmpty&&category_id.isNotEmpty&&subcategory_id.isNotEmpty&&engine_capacity.isNotEmpty&&year.isNotEmpty&&status.isNotEmpty&&colors.isNotEmpty&&engineType.isNotEmpty ){
@@ -126,6 +128,7 @@ print("ldldl");
   "car_data[1][value]":engineType,
   "car_data[2][key]":"Manufacture Year",
   "car_data[2][value]":year,
+  "ids[]":ids,
     if(additions.isNotEmpty)...{
       for(int i=0;i<additions.length;i++)...{
 

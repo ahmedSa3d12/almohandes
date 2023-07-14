@@ -13,6 +13,8 @@ import '../../../../core/preferences/preferences.dart';
 import '../../../../core/remote/service.dart';
 import '../../../../core/utils/appwidget.dart';
 import '../../../../core/utils/toast_message_method.dart';
+import '../../../chat/cubit/chat_cubit.dart';
+import '../../../main/cubit/mainscreens_cubit.dart';
 import '../../../profile/cubit/profile_cubit.dart';
 import '../model/register_model.dart';
 
@@ -106,6 +108,8 @@ class RegisterCubit extends Cubit<RegisterState> {
             Preferences.instance.setUser(loginModel).then((value) {
             //  emit(OnLoginSuccess(loginModel));
               context.read<ProfileCubit>().getuserData();
+              context.read<MainscreensCubit>().getuserData();
+              context.read<ChatCubit>().getuserData();
               context.read<ProfileCubit>().getDeviceToken();
               Navigator.pop(context);
               Navigator.pop(context);

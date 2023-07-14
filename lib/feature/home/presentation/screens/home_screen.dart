@@ -11,6 +11,7 @@ import '../../../../core/utils/assets_manager.dart';
 import 'package:readmore/readmore.dart';
 
 import '../../../../core/utils/hex_color.dart';
+import '../../../profile/cubit/profile_cubit.dart';
 import '../../widget/filter_home_cars.dart';
 import '../../widget/home_cars.dart';
 import '../../widget/industry_year.dart';
@@ -53,97 +54,106 @@ class _HomeScreenState extends State<HomeScreen> {
                     collapseMode: CollapseMode.pin,
                     background: Column(
                         children: [
-                      Container(
-                        width: MediaQuery
-                            .of(context)
-                            .size
-                            .width,
-                        height:  MediaQuery
-                      .of(context)
-                      .size
-                      .height/3,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(8)),
-                            gradient: LinearGradient(colors: [
-                              AppColors.black.withOpacity(.4),
-                              AppColors.gray5
-                            ])),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              child: Image.asset(ImageAssets.circleImage),
-                              top: .1,
-                              left: .1,
-                            ),
-                            Row(
-                              children: [
-                                Column(
-                                  children: [
-                                    SizedBox(
-                                      height: 8,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Container(
-                                        width: MediaQuery.of(context).size.width/2.2,
-                                        child: Text(
-                                          ("youcanadd".tr()),
-                                          style: TextStyle(
-                                              color: AppColors.unselectedTab,
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.bold),
+                      InkWell(
+                        onTap: () {
+                  if(context.read<ProfileCubit>().userModel!=null){
+                  Navigator.pushNamed(context, Routes.adAdsRoute,arguments: null);}
+                  else{
+                  Navigator.pushNamed(context, Routes.loginRoute);
+                  }                        },
+                        child: Container(
+                          width: MediaQuery
+                              .of(context)
+                              .size
+                              .width,
+                          height:  MediaQuery
+                        .of(context)
+                        .size
+                        .height/3.3,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(Radius.circular(8)),
+                              gradient: LinearGradient(colors: [
+                                AppColors.black.withOpacity(.4),
+                                AppColors.gray5
+                              ])),
+                          child: Stack(
+                            children: [
+                              Positioned(
+                                child: Image.asset(ImageAssets.circleImage),
+                                top: .1,
+                                left: .1,
+                              ),
+                              Row(
+                                children: [
+                                  Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 8,
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Container(
+                                          width: MediaQuery.of(context).size.width/2.2,
+                                          child: Text(
+                                            ("youcanadd".tr()),
+                                            style: TextStyle(
+                                                color: AppColors.unselectedTab,
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    SizedBox(
-                                      height: 8,
-                                    ),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                          color: AppColors.black1,
-                                          borderRadius: BorderRadius.all(
-                                            Radius.circular(8),
-                                          )),
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            vertical: 16.0, horizontal: 30),
-                                        child: Row(
-                                          children: [
-                                            Text(
-                                              "add_car".tr(),
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 16,
-                                                  color: AppColors.white),
-                                            ),
-                                            SizedBox(
-                                              width: 8,
-                                            ),
-                                            MySvgWidget(
-                                                path: ImageAssets.carIcon,
-                                                imageColor: AppColors.primary,
-                                                size: 20)
-                                          ],
+                                      SizedBox(
+                                        height: 8,
+                                      ),
+                                      Container(
+                                        decoration: BoxDecoration(
+                                            color: AppColors.black1,
+                                            borderRadius: BorderRadius.all(
+                                              Radius.circular(8),
+                                            )),
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              vertical: 16.0, horizontal: 30),
+                                          child: Row(
+                                            children: [
+                                              Text(
+                                                "add_car".tr(),
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 16,
+                                                    color: AppColors.white),
+                                              ),
+                                              SizedBox(
+                                                width: 8,
+                                              ),
+                                              MySvgWidget(
+                                                  path: ImageAssets.carIcon,
+                                                  imageColor: AppColors.primary,
+                                                  size: 20)
+                                            ],
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                  ],
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(top: 29),
-                                  child: Image.asset(
-                                    ImageAssets.carImage,
-                                    width: 159,
-                                    height: 150,
-                                    fit: BoxFit.fill,
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                    ],
                                   ),
-                                )
-                              ],
-                            )
-                          ],
+                                  Container(
+                                    margin: EdgeInsets.only(top: 29),
+                                    child: Image.asset(
+                                      ImageAssets.carImage,
+                                    width: MediaQuery.of(context).size.width/2.5,
+
+                                      height: 150,
+                                      fit: BoxFit.fill,
+                                    ),
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
                         ),
                       ),
                       SizedBox(
@@ -187,7 +197,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
                   // pinned: true,
                   backgroundColor: AppColors.white,
-                  expandedHeight: 600,
+                  expandedHeight:  MediaQuery.of(context).size.height/1.38,
+
 
                   centerTitle: true,
                 )

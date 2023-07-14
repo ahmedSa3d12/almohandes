@@ -79,16 +79,44 @@ class _AddAdFirstState extends State<AddAdFirst> {
                             itemCount: cubit.model.image.length ,
                             itemBuilder: (context, index) {
                               return  cubit.model.image[index].contains("http")?
-                              ManageNetworkImage(imageUrl: cubit.model.image[index])
-                                  :Image.file(
+                              Stack(
+                                children: [
+
+                                  ManageNetworkImage(imageUrl: cubit.model.image[index]),
+                                  Positioned(
+
+                                    child:  InkWell(
+                                        onTap: () {
+                                          cubit.deleteonline(index,context);
+                                        },
+                                        child:Icon(Icons.delete,color: AppColors.primary,)),
+                                    top: 0,left: 0,)
+                                ],
+                              )
+                                  :Stack(
+                                    children: [
+
+                                      Image.file(
                                 File(
-                                  cubit.model.image[index],
+                                      cubit.model.image[index],
                                 ),
                                 width: 90.0,
                                 height: 90.0,
                                 fit: BoxFit.cover,
 
-                              );
+                              ),
+                                      Positioned(
+
+                                        child: InkWell(
+
+                                          child: Icon(Icons.delete,color: AppColors.primary,),
+                                          onTap: () {
+                                            cubit.deletelocal(index,context);
+                                          },
+                                        ),
+                                        top: 0,left: 0,),
+                                    ],
+                                  );
                             },),
                         ),
                       ),
@@ -126,7 +154,6 @@ class _AddAdFirstState extends State<AddAdFirst> {
                       ) ,
                       SizedBox(height: 4,),
                       Container(
-                        height: 100,
 
                         child: Row(
                           children: [
@@ -219,7 +246,6 @@ class _AddAdFirstState extends State<AddAdFirst> {
 
                           ],
                         ),
-                        width: MediaQuery.of(context).size.width,
                       ),
                       SizedBox(height: 4,),
                       Container(
@@ -420,4 +446,5 @@ class _AddAdFirstState extends State<AddAdFirst> {
           );
         });
   }
+
 }

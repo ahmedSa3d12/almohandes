@@ -127,7 +127,7 @@ String? engineType;
 
   }
   void changeColor(String? value) {
-    print(value);
+
     colors=value;
     emit(CategoriesLoaded());
 
@@ -287,6 +287,23 @@ String? engineType;
           (loginModel) {
        if (loginModel.code == 200) {
           Navigator.pop(context);
+          model=AddAdModel();
+          carsModel=null;
+          capcityControl.text='';
+          priceControl.text='';
+          kiloetercontrol.text='';
+          capcityControl.text='';
+          detailsControl.text='';
+          selectCategories=null;
+          selectSubCategories=null;
+          year=null;
+          status=null;
+          colors=null;
+          engineType=null;
+          additionsvaluecontrol=[];
+          additionscontrol=[];
+          getCarOptions();
+          setIndex(0);
           context.read<MyAdsCubit>().getMyAds();
           Navigator.pushNamedAndRemoveUntil(context, Routes.myAdsRoute, (route) => false);
         }
@@ -312,8 +329,7 @@ String? engineType;
     capcityControl.text=carsModel!.engineCapacity!;
     priceControl.text=carsModel!.price!.toString();
     detailsControl.text=carsModel!.description!;
-
-changeColor(carsModel.color!.replaceAll("fff", "f"));
+if(carsModel.color!=null){changeColor(carsModel.color!);}
 changeStatus(carsModel.data.elementAt(0).value);
 changeEngineType(carsModel.data.elementAt(1).value);
 
@@ -336,6 +352,29 @@ for(int i=0;i<carsModel.images.length;i++){
       .replaceAll("/api", "") +carsModel.images.elementAt(i).image);
 }
     emit(CarLoading());
+  }
+
+  void deletelocal(int index,BuildContext context) {
+
+    model.image.removeAt(index);
+
+
+    emit(PhotoPicked());
+    checkValid1AddAdData(context);
+  }
+  void deleteonline(int index,BuildContext context) {
+    print(model.ids.length);
+for(int i=0;i<carsModel!.images.length;i++){
+  if(model.image.elementAt(index).replaceAll(EndPoints.baseUrl
+      .replaceAll("/api", ""), "")==carsModel!.images.elementAt(i).image){
+    model.ids.add(carsModel!.images.elementAt(i).id);
+  }
+}
+    model.image.removeAt(index);
+
+
+    emit(PhotoPicked());
+    checkValid1AddAdData(context);
   }
 
 
