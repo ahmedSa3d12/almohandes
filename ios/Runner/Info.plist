@@ -46,6 +46,23 @@
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
+
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+      <key>CFBundleURLSchemes</key>
+      <array>
+        <string>fb1179951856245119</string>
+      </array>
+      </dict>
+    </array>
+    <key>FacebookAppID</key>
+    <string>1179951856245119</string>
+    <key>FacebookClientToken</key>
+    <string>09c6def72bd87577919f4387ceb2987c</string>
+    <key>FacebookDisplayName</key>
+    <string>EngWheels</string>
+
 	<true/>
 </dict>
 </plist>

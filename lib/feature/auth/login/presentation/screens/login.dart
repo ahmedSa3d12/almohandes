@@ -1,21 +1,14 @@
 import 'package:engwheels/core/widgets/my_svg_widget.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-
-import 'package:google_sign_in/google_sign_in.dart';
-
-import 'package:readmore/readmore.dart';
-
 import '../../../../../config/routes/app_routes.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/assets_manager.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../cubit/login_cubit.dart';
-import 'package:firebase_core/firebase_core.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -24,9 +17,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  Map<String, dynamic>? _userData;
-  AccessToken? _accessToken;
-  bool? _checking = true;
+
   @override
   Widget build(BuildContext context) {
     LoginCubit cubit=context.read<LoginCubit>();
@@ -222,7 +213,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         onTap: () {
                           //signInWithFacebook();
                       //
-                          _login();
+                         cubit.facebooklogin(context);
                         },
                         child: Container(
                           height: 48,
@@ -253,7 +244,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Expanded(
                       child: InkWell(
                         onTap: () {
-                          signInWithGoogle(context: context);
+                          cubit.signInWithGoogle( context);
                         },
                         child: Container(
                           height: 48,
@@ -325,58 +316,4 @@ class _LoginScreenState extends State<LoginScreen> {
   //   // Once signed in, return the UserCredential
   //   return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
   // }
-  static Future<User?> signInWithGoogle({required BuildContext context}) async {
-    FirebaseAuth auth = FirebaseAuth.instance;
-    User? user;
-
-    final GoogleSignIn googleSignIn = GoogleSignIn();
-
-    final GoogleSignInAccount? googleSignInAccount =
-    await googleSignIn.signIn();
-
-    if (googleSignInAccount != null) {
-      final GoogleSignInAuthentication googleSignInAuthentication =
-      await googleSignInAccount.authentication;
-
-      final AuthCredential credential = GoogleAuthProvider.credential(
-        accessToken: googleSignInAuthentication.accessToken,
-        idToken: googleSignInAuthentication.idToken,
-      );
-
-      try {
-        final UserCredential userCredential =
-        await auth.signInWithCredential(credential);
-
-        user = userCredential.user;
-      } on FirebaseAuthException catch (e) {
-        if (e.code == 'account-exists-with-different-credential') {
-          // handle the error here
-        }
-        else if (e.code == 'invalid-credential') {
-          // handle the error here
-        }
-      } catch (e) {
-        // handle the error here
-      }
-    }
-print(user!.displayName!);
-    return user;
-  }
-  _login() async {
-    final LoginResult loginResult = await FacebookAuth.instance.login();
-
-    if (loginResult.status == LoginStatus.success) {
-      _accessToken = loginResult.accessToken;
-      final userInfo = await FacebookAuth.instance.getUserData();
-      print('ResultStatus:');
-
-      print('ResultStatus: ${loginResult.status}');
-
-      _userData = userInfo;
-      print(_userData.toString());
-    } else {
-      print('ResultStatus: ${loginResult.status}');
-      print('Message: ${loginResult.message}');
-    }
-  }
 }

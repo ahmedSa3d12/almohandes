@@ -7,17 +7,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
-
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import '../../../../core/models/user_model.dart';
 import '../../../../core/preferences/preferences.dart';
 import '../../../../core/remote/service.dart';
 import '../../../../core/utils/appwidget.dart';
 import '../../../main/cubit/mainscreens_cubit.dart';
 import '../model/login_model.dart';
+import 'package:firebase_auth/firebase_auth.dart' as googlelogin;
 
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
+  Map<String, dynamic>? _userData;
+  AccessToken? _accessToken;
+  bool? _checking = true;
   bool isLoginValid = false;
 
   LoginModel loginModel = LoginModel();
@@ -70,5 +75,60 @@ class LoginCubit extends Cubit<LoginState> {
         }
       },
     );
+  }
+
+  signInWithGoogle( BuildContext context) async {
+    googlelogin.FirebaseAuth auth = googlelogin.FirebaseAuth.instance;
+    googlelogin.User? user;
+
+    final GoogleSignIn googleSignIn = GoogleSignIn();
+
+    final GoogleSignInAccount? googleSignInAccount =
+    await googleSignIn.signIn();
+
+    if (googleSignInAccount != null) {
+      final GoogleSignInAuthentication googleSignInAuthentication =
+      await googleSignInAccount.authentication;
+
+      final googlelogin.AuthCredential credential = googlelogin.GoogleAuthProvider.credential(
+        accessToken: googleSignInAuthentication.accessToken,
+        idToken: googleSignInAuthentication.idToken,
+      );
+
+      try {
+        final googlelogin.UserCredential userCredential =
+        await auth.signInWithCredential(credential);
+
+        user = userCredential.user;
+      } on googlelogin.FirebaseAuthException catch (e) {
+        if (e.code == 'account-exists-with-different-credential') {
+          // handle the error here
+        }
+        else if (e.code == 'invalid-credential') {
+          // handle the error here
+        }
+      } catch (e) {
+        // handle the error here
+      }
+
+    }
+    print(user!.displayName);
+  }
+  facebooklogin(BuildContext context) async {
+    final LoginResult loginResult = await FacebookAuth.instance.login();
+
+    if (loginResult.status == LoginStatus.success) {
+      _accessToken = loginResult.accessToken;
+      final userInfo = await FacebookAuth.instance.getUserData();
+      print('ResultStatus:');
+
+      print('ResultStatus: ${loginResult.status}');
+
+      _userData = userInfo;
+      print(_userData.toString());
+    } else {
+      print('ResultStatus: ${loginResult.status}');
+      print('Message: ${loginResult.message}');
+    }
   }
 }
