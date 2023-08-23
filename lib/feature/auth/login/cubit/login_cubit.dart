@@ -24,7 +24,7 @@ class LoginCubit extends Cubit<LoginState> {
   AccessToken? _accessToken;
   bool? _checking = true;
   bool isLoginValid = false;
-
+  googlelogin.User? user;
   LoginModel loginModel = LoginModel();
 
   bool ishidden = true;
@@ -79,7 +79,7 @@ class LoginCubit extends Cubit<LoginState> {
 
   signInWithGoogle( BuildContext context) async {
     googlelogin.FirebaseAuth auth = googlelogin.FirebaseAuth.instance;
-    googlelogin.User? user;
+
 
     final GoogleSignIn googleSignIn = GoogleSignIn();
 
@@ -100,6 +100,9 @@ class LoginCubit extends Cubit<LoginState> {
         await auth.signInWithCredential(credential);
 
         user = userCredential.user;
+        print(user!.displayName);
+
+        registerwithGoogle(context);
       } on googlelogin.FirebaseAuthException catch (e) {
         if (e.code == 'account-exists-with-different-credential') {
           // handle the error here
@@ -112,7 +115,6 @@ class LoginCubit extends Cubit<LoginState> {
       }
 
     }
-    print(user!.displayName);
   }
   facebooklogin(BuildContext context) async {
     final LoginResult loginResult = await FacebookAuth.instance.login();
@@ -122,13 +124,71 @@ class LoginCubit extends Cubit<LoginState> {
       final userInfo = await FacebookAuth.instance.getUserData();
       print('ResultStatus:');
 
-      print('ResultStatus: ${loginResult.status}');
+      //print('ResultStatus: ${loginResult.status}');
 
       _userData = userInfo;
       print(_userData.toString());
+      registerwithFacebook(context);
     } else {
       print('ResultStatus: ${loginResult.status}');
       print('Message: ${loginResult.message}');
     }
   }
+  void registerwithGoogle(BuildContext context) async {
+    AppWidget.createProgressDialog(context, 'wait'.tr());
+    final response = await api.registerUserWithGoogle(user);
+    response.fold(
+          (failure) => {Navigator.pop(context),
+            },
+          (loginModel) {
+        if (loginModel.code == 409) {
+          Navigator.pop(context);
+          toastMessage("exists_email".tr(), context);
+          // errorGetBar(translateText(AppStrings.noEmailError, context));
+
+        } else if (loginModel.code == 200) {
+          Navigator.pop(context);
+          Preferences.instance.setUser(loginModel).then((value) {
+            emit(OnLoginSuccess(loginModel));
+            context.read<ProfileCubit>().getuserData();
+            context.read<MainscreensCubit>().getuserData();
+            context.read<ChatCubit>().getuserData();
+            context.read<ProfileCubit>().getDeviceToken();
+
+            Navigator.pop(context);
+
+          });
+        }
+      },
+    );
+  }
+  void registerwithFacebook(BuildContext context) async {
+    AppWidget.createProgressDialog(context, 'wait'.tr());
+    final response = await api.registerUserWithFacebook(_userData);
+    response.fold(
+          (failure) => {Navigator.pop(context),
+            },
+          (loginModel) {
+        if (loginModel.code == 409) {
+          Navigator.pop(context);
+          toastMessage("exists_email".tr(), context);
+          // errorGetBar(translateText(AppStrings.noEmailError, context));
+
+        } else if (loginModel.code == 200) {
+          Navigator.pop(context);
+          Preferences.instance.setUser(loginModel).then((value) {
+            emit(OnLoginSuccess(loginModel));
+            context.read<ProfileCubit>().getuserData();
+            context.read<MainscreensCubit>().getuserData();
+            context.read<ChatCubit>().getuserData();
+            context.read<ProfileCubit>().getDeviceToken();
+
+            Navigator.pop(context);
+
+          });
+        }
+      },
+    );
+  }
+
 }

@@ -19,6 +19,7 @@ class EndPoints {
   static const String confirmcodeUrl = '${baseUrl}user/ConfirmCode';
   static const String newpasswordUrl = '${baseUrl}user/UpdatePassword';
   static const String registerUrl = '${baseUrl}user/register';
+  static const String registerSocialUrl = '${baseUrl}user/social_login';
   static const String addAdsUrl = '${baseUrl}user/store_car';
   static const String updateAdsUrl = '${baseUrl}user/update_car';
   static const String updateuserUrl = '${baseUrl}user/update_profile';

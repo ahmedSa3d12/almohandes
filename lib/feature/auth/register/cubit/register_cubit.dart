@@ -104,7 +104,7 @@ class RegisterCubit extends Cubit<RegisterState> {
           emit(RegisterFailure());
         } else if (loginModel.code == 200) {
           Navigator.pop(context);
-          Preferences.instance.setUser(loginModel).then((value) {
+         // Preferences.instance.setUser(loginModel).then((value) {
             Preferences.instance.setUser(loginModel).then((value) {
             //  emit(OnLoginSuccess(loginModel));
               context.read<ProfileCubit>().getuserData();
@@ -115,7 +115,7 @@ class RegisterCubit extends Cubit<RegisterState> {
               Navigator.pop(context);
 
             });            // emit(OnLoginSuccess(response));
-          });
+
         }
       },
     );

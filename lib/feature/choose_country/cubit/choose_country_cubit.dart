@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:engwheels/core/preferences/preferences.dart';
 import 'package:meta/meta.dart';
 
 import '../../../core/models/country_model.dart';
@@ -23,9 +24,14 @@ class ChooseCountryCubit extends Cubit<ChooseCountryState> {
     final response = await api.getCountries();
     response.fold(
           (l) => emit(CountriesError()),
-          (r) {
-        countries = r.data!;
+          (r) async {
+        countries = r.data;
+
         emit(CountriesLoaded());
+        CountryModel countryModel=await Preferences.instance.getcountryModel();
+        if(countryModel.id!=0&&countries.isNotEmpty){
+          changeCountry(countryModel);
+        }
       },
     );
   }

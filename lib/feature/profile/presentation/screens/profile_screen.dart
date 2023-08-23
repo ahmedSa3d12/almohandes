@@ -328,6 +328,49 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         InkWell(
                           onTap: () {
+
+                            Navigator.pushReplacementNamed(context, Routes.chooseCountryRoute);
+                          },
+                          child: Container(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Center(
+                                      child: MySvgWidget(
+                                          path: ImageAssets.worldIcon,
+                                          imageColor: AppColors.primary,
+                                          size: 30),
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Center(
+                                      child: Text(
+                                        "change_country".tr(),
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            color: AppColors.black1),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Transform.rotate(
+
+                                  angle: lang == 'en' ? (3.14) : 0,
+                                child: MySvgWidget(
+                                      path: ImageAssets.arrowIcon,
+                                      imageColor: AppColors.black1,
+                                      size: 15),
+                                ),
+                              ],
+                            ),
+                            height: 70,
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {
                             rateApp();
                           },
                           child: Container(

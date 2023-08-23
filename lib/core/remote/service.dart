@@ -8,6 +8,7 @@ import 'package:engwheels/feature/auth/edit_profile/model/edit_Profile_model.dar
 import 'package:engwheels/feature/auth/login/model/login_model.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:firebase_auth/firebase_auth.dart' as googlelogin;
 
 import '../../feature/addad/model/add_ad_model.dart';
 import '../../feature/auth/register/model/register_model.dart';
@@ -254,6 +255,36 @@ class ServiceApi {
         EndPoints.registerUrl,
         formDataIsEnabled: true,
         body: await userData.updateToJson(),
+      );
+      return Right(UserModel.fromJson(response));
+    } on ServerException {
+      return Left(ServerFailure());
+    }
+  }
+  Future<Either<Failure, UserModel>> registerUserWithFacebook(
+  Map<String, dynamic>?  userData) async {
+    try {
+      final response = await dio.post(
+        EndPoints.registerSocialUrl,
+        formDataIsEnabled: true,
+        body:userData,
+      );
+      return Right(UserModel.fromJson(response));
+    } on ServerException {
+      return Left(ServerFailure());
+    }
+  }
+  Future<Either<Failure, UserModel>> registerUserWithGoogle(
+  googlelogin.User?  userData) async {
+    try {
+      final response = await dio.post(
+        EndPoints.registerSocialUrl,
+        formDataIsEnabled: true,
+        body:{
+      "email":userData!.email,
+      "name":userData.displayName,
+      "phone":userData.phoneNumber
+        },
       );
       return Right(UserModel.fromJson(response));
     } on ServerException {
