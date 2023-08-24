@@ -116,12 +116,27 @@ class _ChooseCountryState extends State<ChooseCountry> {
                                     TextStyle(decoration: TextDecoration.none),
                                 hint: Row(
                                   children: [
+                                    Visibility(
+                                      child: ManageNetworkImage(
+                                        imageUrl: cubit.selectedCountry1!=null?cubit.selectedCountry1!.image:"",
+                                        width: 30,
+                                        height: 30,
+                                        borderRadius: 6,
+                                      ),
+                                      visible: cubit.selectedCountry1!=null,
+                                    ),
+
                                     SizedBox(
                                       width: 4,
                                     ),
                                     Expanded(
                                       child: Text(
-                                        'select_country'.tr(),
+                                       cubit.selectedCountry1!=null?( EasyLocalization.of(context)!
+                                           .currentLocale!
+                                           .languageCode ==
+                                           'ar'
+                                           ? cubit.selectedCountry1!.titleAr
+                                           : cubit.selectedCountry1!.titleEn): 'select_country'.tr(),
                                         style: TextStyle(
                                             fontSize: 14,
                                             fontWeight: FontWeight.bold,
@@ -135,7 +150,8 @@ class _ChooseCountryState extends State<ChooseCountry> {
                                     .map((item) =>
                                         DropdownMenuItem<CountryModel>(
                                           value: item,
-                                          child: Row(
+                                          child:
+                                          Row(
                                             children: [
                                               ManageNetworkImage(
                                                 imageUrl: item.image,

@@ -329,7 +329,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         InkWell(
                           onTap: () {
 
-                            Navigator.pushReplacementNamed(context, Routes.chooseCountryRoute);
+                            Navigator.pushNamed(context, Routes.chooseCountryRoute);
                           },
                           child: Container(
                             child: Row(

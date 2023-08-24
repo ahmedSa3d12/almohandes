@@ -14,6 +14,8 @@ class ChooseCountryCubit extends Cubit<ChooseCountryState> {
 
   List<CountryModel> countries = [];
 
+  CountryModel? selectedCountry1;
+
   ChooseCountryCubit(this.api) : super(ChooseCountryInitial()){
     getCountries();
  
@@ -26,18 +28,26 @@ class ChooseCountryCubit extends Cubit<ChooseCountryState> {
           (l) => emit(CountriesError()),
           (r) async {
         countries = r.data;
+        CountryModel countryModel;
+        countryModel=  await Preferences.instance.getcountryModel();
+            if(countryModel.id!=0&&countries.isNotEmpty){
+              print(countryModel.id.toString());
+          selectedCountry1=countryModel;
+         // emit(CountriesLoaded())
 
+              // changeCountry(selectedCountry);
+
+            }
         emit(CountriesLoaded());
-        CountryModel countryModel=await Preferences.instance.getcountryModel();
-        if(countryModel.id!=0&&countries.isNotEmpty){
-          changeCountry(countryModel);
-        }
+
+
       },
     );
   }
 
   void changeCountry(CountryModel? value) {
     selectedCountry=value;
+    selectedCountry1=null;
     emit(CountriesLoaded());
 
   }
