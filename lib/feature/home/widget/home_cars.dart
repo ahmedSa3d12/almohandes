@@ -51,7 +51,7 @@ class HomeCar extends StatelessWidget {
                     children: [
                       Container(
                         width: 240,
-                        height: 160,
+                        height: MediaQuery.of(context).size.height/5,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(
                                 Radius.circular(15)),
@@ -59,7 +59,7 @@ class HomeCar extends StatelessWidget {
                         child:cubit.cars.elementAt(index).image!=null?
                         CachedNetworkImage(
                           width: 240,
-                          height: 160,
+                          height: MediaQuery.of(context).size.height/5,
                           fit: BoxFit.fitWidth,
                           imageBuilder: (context, imageProvider) => Container(
 
@@ -73,7 +73,7 @@ class HomeCar extends StatelessWidget {
                           imageUrl: EndPoints.baseUrl.replaceAll("/api", "")+cubit.cars.elementAt(index).image!,):Container(),
                       ),
                       SizedBox(
-                        height: 7,
+                        height: MediaQuery.of(context).size.height/90,
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(
@@ -89,7 +89,8 @@ class HomeCar extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: 7,
+                                                height: MediaQuery.of(context).size.height/90,
+
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(

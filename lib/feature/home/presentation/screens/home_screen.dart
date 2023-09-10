@@ -186,8 +186,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                       Container(
-                        height: 260,
+
                         child: HomeCar(),
+                        height: MediaQuery.of(context).size.height/3,
                       ),
                       SizedBox(
                         height: 10,
@@ -197,7 +198,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                   // pinned: true,
                   backgroundColor: AppColors.white,
-                  expandedHeight:  MediaQuery.of(context).size.height/1.38,
+                  expandedHeight:  MediaQuery.of(context).size.height/1.33,
 
 
                   centerTitle: true,
