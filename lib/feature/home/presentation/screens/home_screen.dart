@@ -69,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           height:  MediaQuery
                         .of(context)
                         .size
-                        .height/3.3,
+                        .height/3.2,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.all(Radius.circular(8)),
                               gradient: LinearGradient(colors: [
@@ -88,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Column(
                                     children: [
                                       SizedBox(
-                                        height: 8,
+                                        height: MediaQuery.of(context).size.height/97,
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.all(8.0),
@@ -98,13 +98,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                             ("youcanadd".tr()),
                                             style: TextStyle(
                                                 color: AppColors.unselectedTab,
-                                                fontSize: 20,
+                                                fontSize: MediaQuery.of(context).size.width/19,
                                                 fontWeight: FontWeight.bold),
                                           ),
                                         ),
                                       ),
                                       SizedBox(
-                                        height: 8,
+                                        height: MediaQuery.of(context).size.height/97,
                                       ),
                                       Container(
                                         decoration: BoxDecoration(
@@ -113,15 +113,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                               Radius.circular(8),
                                             )),
                                         child: Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              vertical: 16.0, horizontal: 30),
+                                          padding:  EdgeInsets.symmetric(
+                                              vertical: MediaQuery.of(context).size.width/22, horizontal: MediaQuery.of(context).size.width/22),
                                           child: Row(
                                             children: [
                                               Text(
                                                 "add_car".tr(),
                                                 style: TextStyle(
                                                     fontWeight: FontWeight.bold,
-                                                    fontSize: 16,
+                                                    fontSize: MediaQuery.of(context).size.width/22,
                                                     color: AppColors.white),
                                               ),
                                               SizedBox(
@@ -136,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         ),
                                       ),
                                       SizedBox(
-                                        height: 10,
+                                        height: MediaQuery.of(context).size.height/95,
                                       ),
                                     ],
                                   ),
@@ -146,7 +146,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ImageAssets.carImage,
                                     width: MediaQuery.of(context).size.width/2.5,
 
-                                      height: 150,
+                                      height: MediaQuery.of(context).size.height/(5),
+
                                       fit: BoxFit.fill,
                                     ),
                                   )
@@ -157,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: 20,
+                        height: MediaQuery.of(context).size.height/30,
                       ),
                       Row(
                         children: [
@@ -198,7 +199,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                   // pinned: true,
                   backgroundColor: AppColors.white,
-                  expandedHeight:  MediaQuery.of(context).size.height/1.33,
+                  expandedHeight:  MediaQuery.of(context).size.height/1.3,
 
 
                   centerTitle: true,

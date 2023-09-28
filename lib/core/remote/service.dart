@@ -423,7 +423,7 @@ class ServiceApi {
 
       final response = await dio.post(
         EndPoints.deleteAccountUrl,
-        formDataIsEnabled: true,
+       // formDataIsEnabled: true,
         options: Options(
           headers: {
             'Authorization': userModel!.data!.token,

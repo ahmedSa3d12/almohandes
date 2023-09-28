@@ -67,7 +67,7 @@ class User {
     photo: json["photo"],
     phone: json["phone"]??'',
     countryId: json["country_id"]??0,
-    governorateId: json["governorate_id"],
+    governorateId: json["governorate_id"]??0,
     createdAt: DateTime.parse(json["created_at"]),
     updatedAt: DateTime.parse(json["updated_at"]),
     token: json["token"]??'',

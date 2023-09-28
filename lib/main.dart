@@ -54,17 +54,22 @@ Future<void> main() async {
     );
   }
   Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-    showNotification(message.data['title'], message.data['body']);
-
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    if(message.data.isNotEmpty) {
+      showNotification(message.data['title'], message.data['body']);
+    }
   }
 // ...
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
+
   FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
 
-  FirebaseMessaging messaging = FirebaseMessaging.instance;
 
   NotificationSettings settings = await messaging.requestPermission();
   FirebaseMessaging.onMessage.listen((RemoteMessage message) {

@@ -47,22 +47,54 @@ class _MainScreensState extends State<MainScreens> {
                 BottomNavigationBarItem(
 
                     icon: SvgPicture.asset('assets/icons/home.svg',
+                    height:            MediaQuery.of(context).size.width/15
+
+,
+
+                    width:            MediaQuery.of(context).size.width/15
+
+,
+
                     color: context.read<MainscreensCubit>().index==0?AppColors.primary:AppColors.descriptionBoardingColor, ),
 
                     label: ''
 
                 ), BottomNavigationBarItem(
                     icon: SvgPicture.asset('assets/icons/message.svg',
+                        height:            MediaQuery.of(context).size.width/15
+
+,
+
+                        width:            MediaQuery.of(context).size.width/15
+
+,
+
                         color: context.read<MainscreensCubit>().index==1?AppColors.primary:AppColors.descriptionBoardingColor),
 
                     label: ''
                 ), BottomNavigationBarItem(
                     icon: SvgPicture.asset('assets/icons/news.svg',
+                        height:            MediaQuery.of(context).size.width/15
+
+,
+
+                        width:            MediaQuery.of(context).size.width/15
+
+,
+
                         color: context.read<MainscreensCubit>().index==2?AppColors.primary:AppColors.descriptionBoardingColor),
 
                     label: ''
                 ), BottomNavigationBarItem(
                     icon: SvgPicture.asset('assets/icons/user.svg',
+                        height:            MediaQuery.of(context).size.width/15
+
+,
+
+                        width:            MediaQuery.of(context).size.width/15
+
+,
+
                         color: context.read<MainscreensCubit>().index==3?AppColors.primary:AppColors.descriptionBoardingColor),
 
                     label: ''
